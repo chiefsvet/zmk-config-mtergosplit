@@ -1,0 +1,16 @@
+if SHIELD_MTERGOSPLIT_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "mtergosplit"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_MTERGOSPLIT_LEFT || SHIELD_MTERGOSPLIT_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
