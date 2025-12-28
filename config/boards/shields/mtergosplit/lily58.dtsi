@@ -31,13 +31,11 @@
         >;
     };
 
-    position_map {
-        compatible = "zmk,physical-layout-position-map";
-
-        layout_0 {
-            physical-layout = <&layout_0>;
-            positions = <>;
-        };
+    layout: layout {
+        compatible = "zmk,physical-layout";
+        display-name = "mtErgoSplit;
+        transform = <&transform>;
+        kscan = <&kscan>;
 
     keys  //                     w   h     x    y       rot    rx    ry
         //row 0 
