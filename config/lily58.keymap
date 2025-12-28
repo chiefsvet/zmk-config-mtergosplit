@@ -4,8 +4,8 @@
 
 // Assigning layer name to layer number to use in keymap below
 #define BASE 0
-#define LEFT 1
-#define RIGHT 2
+#define RAISELEFT 1
+#define RAISERIGHT 2
 #define BTLAYER 3
 
 // Used to set up momentary (hold) vs. toggle (tap) a layer
@@ -66,23 +66,12 @@
                     &kp TAB                         &kp Q           &kp W       &kp E       &kp R       &kp T       &kp K_PP                                        &kp K_MUTE      &kp Y           &kp U       &kp I           &kp O       &kp P           &kp MINUS        
                     &sh_caps LSHIFT CAPS_LOCK       kp A            &kp S       &kp D       &kp F       &kp G       &kp LEFT        &kp UP          &kp DOWN        &kp RIGHT       &kp H           &kp J       &kp K           &kp L       &kp SEMI        &kp RETURN   
                     &kp GRAVE                       &kp Z           &kp X       &kp C       &kp V       &kp B                       &kp LCTRL       &kp BACKSLASH                   &kp N           &kp M       &kp COMMA       &kp DOT     &KP SLASH       &kp RSHIFT
-                                                                                            &kp LALT    &kp LGUI    &kp SPACE       &mo RIGHT       &mo LEFT        &kp SPACE       &kp RGUI        &RALT
+                                                                                            &kp LALT    &kp LGUI    &kp SPACE       &mo RAISERIGHT  &mo RAISELEFT   &kp SPACE       &kp RGUI        &RALT
            
             >;
         };
 
-        RIGHT {
-            display-name = "Raise R";
-            bindings = <
-            //  Col 0   Col 1       Col 2       Col 3       Col 4       Col 5       Col 6       Col 7           Col 8       Col 9       Col 10      Col 11      Col 12      Col 13      Col 14          Col 15  
-                &none   &none       &none       &none       &none       &none                                                           &kp F6      &kp F7      &kp F8      &kp F9      &kp F10         &none
-                &none   &none       &none       &none       &none       &none       &none                                   &none       &none       &none       &none       &none       &none           &kp EQUAL
-                &none   &none       &none       &none       &none       &none       &none       &none       &kp PG_DN       &kp END     &none       &none       &none       &none       &td_SQT_DQT     &none 
-                                                            &none       &none       &none       &none       &none           &none       &none       &none       
-            >;
-        };
-
-        LEFT {
+        RAISELEFT {
             display-name = "Raise L";
             bindings = <
             //  Col 0   Col 1       Col 2       Col 3       Col 4       Col 5       Col 6       Col 7           Col 8       Col 9       Col 10      Col 11      Col 12      Col 13      Col 14      Col 15  
@@ -92,6 +81,17 @@
                 &none   &none       &none       &none       &none       &none       &none       &none           &none       &none       &none       &none       &none       &none       &none       &none
                                                             &none       &none       none        &none           &none       &none       &none       &none           
             >;
+            >;
+        };
+
+        RAISERIGHT {
+            display-name = "Raise R";
+            bindings = <
+            //  Col 0   Col 1       Col 2       Col 3       Col 4       Col 5       Col 6       Col 7           Col 8       Col 9       Col 10      Col 11      Col 12      Col 13      Col 14          Col 15  
+                &none   &none       &none       &none       &none       &none                                                           &kp F6      &kp F7      &kp F8      &kp F9      &kp F10         &none
+                &none   &none       &none       &none       &none       &none       &none                                   &none       &none       &none       &none       &none       &none           &kp EQUAL
+                &none   &none       &none       &none       &none       &none       &none       &none       &kp PG_DN       &kp END     &none       &none       &none       &none       &td_SQT_DQT     &none 
+                                                            &none       &none       &none       &none       &none           &none       &none       &none       
             >;
         };
 
