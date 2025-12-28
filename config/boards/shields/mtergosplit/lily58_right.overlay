@@ -1,4 +1,4 @@
-#include "lily58t.dtsi"
+#include "lily58.dtsi"
 
 &transform {
     col-offset = <8>;
