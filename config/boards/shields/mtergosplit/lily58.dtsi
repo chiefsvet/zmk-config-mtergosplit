@@ -33,7 +33,7 @@
 
     layout: layout {
         compatible = "zmk,physical-layout";
-        display-name = "mtErgoSplit;
+        display-name = "mtErgoSplit";
         transform = <&transform>;
         kscan = <&kscan>;
 
