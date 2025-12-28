@@ -31,11 +31,10 @@
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
-            display-name = "mt Shift/Lock";
+            display-name = "CAPS LOCK";
         };
-    }
      };
-
+    
     combos {
         compatible = "zmk,combos";
         combo_BT {
