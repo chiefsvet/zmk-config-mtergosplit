@@ -25,6 +25,13 @@
 /   {
      behaviors {
        
+       td_SQT_DQT: tap_dance_SQT_DQT {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SQT>, <&kp DQT>;
+        };
+
         mtshift: mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
