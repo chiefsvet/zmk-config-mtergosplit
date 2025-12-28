@@ -1,4 +1,4 @@
-#include "mtergosplit.dtsi"
+#include "lily58t.dtsi"
 
 &transform {
     col-offset = <8>;

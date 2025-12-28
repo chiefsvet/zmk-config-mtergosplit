@@ -1,4 +1,4 @@
-#include "mtergosplit.dtsi"
+#include "lily58.dtsi"
 
 &kscan {
     col-gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>,
