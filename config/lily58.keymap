@@ -66,7 +66,11 @@
                     &kp GRAVE                                 &kp Z       &kp X       &kp C       &kp V       &kp B                         &kp LCTRL           &kp BACKSLASH                       &kp N           &kp M       &kp COMMA       &kp DOT     &kp SLASH       &kp RSHIFT
                                                                                       &kp LALT    &kp LGUI    &kp SPACE   &mo RAISERIGHT    &mo RAISELEFT       &kp SPACE           &kp RGUI        &kp RALT
             >;
-        };
+
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        sensor-bindings = <&inc_dec_kp C_PREVIOUS C_NEXT>;
+
+        }
 
         RAISELEFT {
             display-name = "Raise L";
@@ -79,6 +83,10 @@
                 &none   &none       &none       &none       &none       &none       &none       &none           &none       &none       &none       &none       &none       &none       &none       &none
                                                             &none       &none       &none       &none           &none       &none       &none       &none           
             >;
+
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        sensor-bindings = <&inc_dec_kp C_PREVIOUS C_NEXT>;
+
         };
 
         RAISERIGHT {
@@ -104,6 +112,10 @@
                 &none   &none           &none               &none           &none      &sys_reset                &none    &none                 &none       &none       &none       &none       &none       &none 
                                                                             &none      &none        &none        &none    &none     &none       &none       &none           
             >;
+
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        sensor-bindings = <&inc_dec_kp C_PREVIOUS C_NEXT>;
+
         };
     };
 };
