@@ -6,7 +6,7 @@
 #define BASE 0
 #define RAISELEFT 1
 #define RAISERIGHT 2
-#define BTLAYER 3
+#define FX_BT 3
 
 // Behavior Overrides
 
@@ -21,47 +21,85 @@
 
 /   {
      behaviors {
-       
-       td_SQT_DQT: tap_dance_SQT_DQT {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp SQT>, <&kp DQT>;
-        };
-
-        mtshift: mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&kp>;
-            display-name = "CAPS LOCK";
-        };
-     };
     
     combos {
         compatible = "zmk,combos";
         combo_BT {
             timeout-ms = <50>;
-            key-positions = <62 63>;
+            key-positions = <59 67>;
             bindings = <&mo 3>;
         };
     };
     
+
+/ {
+    macros {
+        macro1: macro1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp Z &kp M &kp K>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        macro2: macro2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp Z &kp M &kp K>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        macro3: macro3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp Z &kp M &kp K>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        macro3: macro3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp Z &kp M &kp K>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+    };
+};
+
     keymap {
         compatible = "zmk,keymap";
-        // Keyboard layout  
-        
+       
+        // Keyboard layout - Base layer 
+        //      Col 0        |     Col 1    |  Col 2    |  Col 3   |   Col 4    |        Col 5              |    Col 6       |     Col 7           |   Col 8          |   Col 9       |   Col 10     |    Col 11   |  Col 12    |    Col 13     |      Col 14  
+        //      ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //R0        Esc                 1           2           3           4                 5                       ` ~               M1                   6                   7               8               9           0             -                = 
+        //R1        Tab                 Q           W           E           R                 T                                         M2                   Y                   U               I               O           P            LBKT             RBKT
+        //R2        Caps                A           S           D           F                 G                                         M3                   H                   J               K               L           ;             '               Return
+        //R3        Shift               Z           X           C           V                 B                                         M4                   N                   M               ,               .           /            Shift
+        //R4        Ctrl               Opt         Cmd        Space     RaiseRight                                                                       RaiseLeft             Space            Cmd             Opt                        \               BKSP
+       
         BASE {
             display-name = "Base";
             bindings = <
-            //      Col 0                               |     Col 1    |  Col 2    |  Col 3   |   Col 4    |  Col 5    |  Col 6       |     Col 7           |   Col 8           |   Col 9       |   Col 10     |    Col 11   |  Col 12      |   Col 13   |  Col 14      |    Col 15     |
-            //      ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                    &kp ESC                                   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                                                                                &kp N6          &kp N7      &kp N8          &kp N9      &kp N0          &kp BSPC
-                    &kp TAB                                   &kp Q       &kp W       &kp E       &kp R       &kp T       &kp C_MUTE                                                &kp C_PP        &kp Y           &kp U       &kp I           &kp O       &kp P           &kp MINUS
-                    &mtshift LEFT_SHIFT CAPSLOCK              &kp A       &kp S       &kp D       &kp F       &kp G       &kp LEFT          &kp UP              &kp DOWN            &kp RIGHT       &kp H           &kp J       &kp K           &kp L       &kp SEMI        &kp RETURN
-                    &kp GRAVE                                 &kp Z       &kp X       &kp C       &kp V       &kp B                         &kp LCTRL           &kp BACKSLASH                       &kp N           &kp M       &kp COMMA       &kp DOT     &kp SLASH       &kp RSHIFT
-                                                                                      &kp LALT    &kp LGUI    &kp SPACE   &mo RAISERIGHT    &mo RAISELEFT       &kp SPACE           &kp RGUI        &kp RALT
+            
+        // Keyboard layout - Base layer      
+        //  Col 0        |         Col 1    |  Col 2    |  Col 3   |   Col 4          |     Col 5           |     Col 6       |     Col 7           |   Col 8          |   Col 9       |   Col 10     |    Col 11   |  Col 12    |    Col 13     |      Col 14  
+        //  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                &kp ESC            &kp N1      &kp N2      &kp N3      &kp N4               &kp N5                &kp GRAVE         &macro1              &kp N6              &kp N7         &kp N8          &kp N9      &kp N0        &kp MINUS         &kp EQUAL
+                &kp TAB            &kp Q       &kp W       &kp E       &kp R                &kp T                 &none             &macro2              &kp Y               &kp U          &kp I           &kp O       &kp P         &kp LBKT          &kp RBKT
+                &kp CAPSLOCK       &kp A       &kp S       &kp D       &kp F                &kp G                 &none             &macro3              &kp H               &kp J          &kp K           &kp L       &kp SEMI      &kp APOS          &kp RETURN
+                &kp LEFT_SHIFT     &kp Z       &kp X       &kp C       &kp V                &kp B                 &none             &macro4              &kp N               &kp M          &kp COMMA        &kp DOT     &kp SLASH     &kp RSHIFT
+                &kp LCTRL          &kp LALT    &kp LGUI    &kp SPACE   &mo RAISERIGHT       &mo RAISELEFT         &kp SPACE                                                                 &mo RAISELEFT    &kp SPACE   &KP RGUI      &kp BACKSLASH     &kp BSPC
         >;
 
         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -72,15 +110,26 @@
         RAISELEFT {
             display-name = "Raise L";
             bindings = <
-            //  Col 0 | Col 1   |   Col 2    |  Col 3    |  Col 4    |  Col 5    |  Col 6     | Col 7        |  Col 8   |   Col 9   |   Col 10  |   Col 11   |  Col 12   |  Col 13   |  Col 14  |   Col 15  |
-            //  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                &none   &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                                          &none       &none       &none       &none       &none       &none
-                &none   &kp F11     &kp F12     &kp F13     &kp F14     &kp F15     &none                                   &none       &none       &none       &none       &none       &none       &none
-                &none   &none       &none       &none       &none       &none       &kp HOME    &kp PG_UP       &none       &none       &none       &none       &none       &none       &none       &none
-                &none   &none       &none       &none       &none       &none       &none       &none           &none       &none       &none       &none       &none       &none       &none       &none
-                                                            &none       &none       &none       &none           &none       &none       &none       &none           
-            >;
 
+        // Keyboard layout - Raise left
+            //  Col 0 |  Col 1   |   Col 2    |  Col 3    |  Col 4    |  Col 5    |  Col 6     | Col 7       |     Col 8         |   Col 9            |     Col 10  |       Col 11   |  Col 12   |  Col 13   |  Col 14   |   Col 15  |
+            //  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //R0  
+        //R1                                                                                                    PREVIOUS             PLAY_PAUSE      NEXT
+        //R2                                                                                                    MUTE                 VOL DOWN         VOL UP
+        //R3
+        //R4
+
+
+        //      Col 0 |  Col 1   |   Col 2    |  Col 3    |  Col 4    |  Col 5    |  Col 6     | Col 7       |     Col 8         |   Col 9            |     Col 10  |       Col 11   |  Col 12   |  Col 13   |  Col 14   |   Col 15  |
+        //      ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                &none    &none       &none       &none       &none       &none       &none       &none          &none               &none                   &none           &none       &none       &none       &none       &none
+                &none    &none       &none       &none       &none       &none       &none       &none          &kp C_PREVIOUS      &kp C_PLAY_PAUSE        &kp C_NEXT      &none       &none       &none       &none       &none
+                &none    &none       &none       &none       &none       &none       &kp HOME    &kp PG_UP      &kp C_MUTE          &kp C_VOL_DN            &kp C_VOL_UP    &none       &none       &none       &none       &none
+                &none    &none       &none       &none       &none       &none       &none       &none          &none               &none                   &none           &none       &none       &none       &none       &none
+                &none    &none       &none       &none       &none       &none       &none       &none          &none               &none                   &none           &none       &none       &none       &kp DEL      &none           
+            >;
+ 
         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         sensor-bindings = <&inc_dec_kp C_PREVIOUS C_NEXT>;
 
@@ -89,12 +138,23 @@
         RAISERIGHT {
             display-name = "Raise R";
             bindings = <
-            //  Col 0 | Col 1   |   Col 2    |  Col 3    |  Col 4    |  Col 5    |  Col 6     | Col 7    |  Col 8       |   Col 9   |   Col 10  |   Col 11   |  Col 12   |  Col 13   |  Col 14  |       Col 15        |
-            //  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                &none   &none       &none       &none       &none       &none                                                           &kp F6      &kp F7      &kp F8      &kp F9      &kp F10         &none
-                &none   &none       &none       &none       &none       &none       &none                                   &none       &none       &none       &none       &none       &none           &kp EQUAL
-                &none   &none       &none       &none       &none       &none       &none       &none       &kp PG_DN       &kp END     &none       &none       &none       &none       &td_SQT_DQT     &none 
-                                                            &none       &none       &none       &none       &none           &none       &none       &none       
+
+                    // Keyboard layout - Raise left
+            //      Col 0 |  Col 1        | Col 2       |s   Col 3    |  Col 4    |  Col 5    |  Col 6     | Col 7    |  Col 8     |   Col 9   |   Col 10  |   Col 11   |  Col 12   |  Col 13   |  Col 14  |   Col 15  |
+            //      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            //R0             Bright Dn   Bright Up
+            //R1                        sHome        Up       End
+            //R2                                   Left        Down     Right
+            //R3                                               Pg Dn    Pg Up
+            //R4
+
+            //      Col 0 |  Col 1        | Col 2       |s   Col 3    |  Col 4    |  Col 5    |  Col 6     | Col 7    |  Col 8     |   Col 9   |   Col 10  |   Col 11   |  Col 12   |  Col 13   |  Col 14  |   Col 15  |
+            //      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                    &none    &kp C_BRI_DN   &kp C_BRI_UP    &none       &none       &none       &none       &none        &none         &none        &none       &none       &none       &none       &none       &none
+                    &none    &none          &kp HOME        &kp UP      &kp END     &none       &none       &none        &none         &none        &none       &none       &none       &none       &none       &none
+                    &none    &none          &kp LEFT        &kp DOWN    &kp RIGHT   &none       &none       &none        &none         &none        &none       &none       &none       &none       &none       &none
+                    &none    &none          &none           &kp PG_DN   &kp PG_UP   &none       &none       &none       &none          &none        &none       &none       &none       &none       &none       &none
+
             >;
 
         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -102,16 +162,26 @@
 
         };
 
-        BTLAYER {
-            display-name = "Bluetooth";
+        FX_BT {
+            display-name = "Fn/BT";
             bindings =<
-            //  Col 0 | Col 1         |   Col 2          |  Col 3         |  Col 4  |  Col 5     |  Col 6    |   Col 7 |  Col 8  |  Col 9   |   Col 10  |   Col 11   |  Col 12   |  Col 13   |  Col 14  |   Col 15  |
-            //  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                &none   &bt BT_SEL 0    &bt BT_SEL 1        &bt BT_SEL 2    &none      &none                                                    &none       &none       &none       &none       &none       &none
-                &none   &bt BT_CLR      &bt BT_CLR_ALL      &none           &none      &none        &none                           &none       &none       &none       &none       &none       &none       &none
-                &none   &none           &none               &none           &none      &none        &none        &none    &none     &none       &none       &none       &none       &none       &none       &none
-                &none   &none           &none               &none           &none      &sys_reset                &none    &none                 &none       &none       &none       &none       &none       &none 
-                                                                            &none      &none        &none        &none    &none     &none       &none       &none           
+
+                // Keyboard layout - Raise left
+        //      Col 0 |     Col 1         |   Col 2       |     Col 3         | Col 4  |        Col 5     |         Col 6    |   Col 7 |    Col 8  |    Col 9   |   Col 10  |   Col 11   |  Col 12   |  Col 13   |  Col 14  |
+        //      -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //R0                F1              F2                  F3              F4              F5                   F6           F7          F8          F9          F10
+        //R1                BT1             BT2                 BT3             BT Clear        BT Clear All
+        //R2
+        //R3                                                    Restart         Reset
+        //R4
+
+            //  Col 0 |     Col 1         |   Col 2       |     Col 3         | Col 4  |        Col 5     |         Col 6    |   Col 7 |    Col 8  |    Col 9   |   Col 10  |   Col 11   |  Col 12   |  Col 13   |  Col 14  |
+            //  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                &none       &kp F1          &kp F2              &kp F3          &kp F4          &kp F5              &none       &none       &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &none       &none         
+                &none       &bt BT_SEL 0    &bt BT_SEL 1        &bt BT_SEL 2    &bt BT_CLR      &bt BT_CLR_ALL      &none       &none       &none       &none       &none       &none       &none       &none       &none
+                &none       &none           &none               &none           &none           &none               &none       &none       &none       &none       &none       &none       &none       &none       &none
+                &none       &none           &none               &none           &sys_reset      &bootloader         &none       &none       &none       &none       &none       &none       &none       &none       &none 
+                &none       &none           &none               &none           &none           &none               &none       &none       &none       &none       &none       &none       &none       &none       &none         
             >;
 
         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;

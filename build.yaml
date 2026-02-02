@@ -25,9 +25,4 @@ include:
     make-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: mtergosplit_left
   - board: nice_nano_v2
-    shield: lily58_right nice_view_adapter nice_view
-    snippet: studio-rpc-usb-uart
-    make-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: mtergosplit_right
-  - board: nice_nano_v2
     shield: settings_reset
