@@ -8,17 +8,6 @@
 #define RAISERIGHT 2
 #define FX_BT 3
 
-// Behavior Overrides
-
-&mt {
-    tapping-term-ms = <200>; // This is the value already set by default
-};
-
-&lt {
-    tapping-term-ms = <200>;
-    flavor = "hold-preferred";
-};
-
 /   {
      behaviors {
     
@@ -28,9 +17,10 @@
             timeout-ms = <50>;
             key-positions = <59 67>;
             bindings = <&mo 3>;
+            };
         };
     };
-    };
+};
 
 / {
     macros {
@@ -73,7 +63,6 @@
                 , <&macro_release &kp LSHFT>
                 ;
         };
-    };
 };
 
     keymap {
