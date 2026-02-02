@@ -30,7 +30,7 @@
             bindings = <&mo 3>;
         };
     };
-    
+    };
 
 / {
     macros {
