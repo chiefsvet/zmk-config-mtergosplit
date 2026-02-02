@@ -54,7 +54,7 @@
                 ;
         };
 
-        macro3: macro3 {
+        macro4: macro4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
