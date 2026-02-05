@@ -1,7 +1,7 @@
 #include "lily58.dtsi"
 
 &transform {
-    col-offset = <8>;
+    col-offset = <9>;
 };
 
 &kscan {
